@@ -1,24 +1,16 @@
 "use client";
 
-import React, { useEffect,useState } from "react";
+import React, { useEffect } from "react";
 import { useStore } from "@/store/index";
 import { observer } from "mobx-react-lite";
-import { getLang } from "@/lang/getLang";
+import {useGetLangHook} from "@/hook/langHook"
 
 function TestStore() {
   const store = useStore();
-  const [localLang, setLocalLang] = useState({})
 
-  const getlangFn = async () => {
-    // 获取
-    // const lang =  await getLang()
+  const  [localLang,setlangFn] = useGetLangHook()
+  console.log('localLang: ', localLang);
 
-    //设置语言
-    const lang = await getLang("en");
-    store.setLangType("en");
-    console.log("lang: ", lang);
-    setLocalLang(lang)
-  };
 
   // 获取user Store里面的信息
   console.log(store.user.userInfo);
@@ -28,7 +20,7 @@ function TestStore() {
       userId: "TestStore",
       nickname: "TestStore",
     });
-    getlangFn();
+
   }, []);
 
   //点击事件
@@ -39,11 +31,16 @@ function TestStore() {
     });
   };
 
+  const changeLang = ()=>{
+     setlangFn('en')
+  }
+
   return (
     <div>
       <h1>TestStore</h1>
       <button onClick={handleClick}>改变nickname</button>
       nickname: {store.user.userInfo.nickname}
+      <button onClick={changeLang}>切换英文</button>
       <div>国际化：{localLang?.products?.cart}</div>
     </div>
   );
