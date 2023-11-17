@@ -1,6 +1,12 @@
 "use client";
 
 import React from "react";
+import {
+  UnorderedListOutlined,
+  SearchOutlined,
+} from '@ant-design/icons';
+import { Input } from 'antd';
+import logo from "@/assets/logo.png";
 import "./index.scss";
 
 export default function Header() {
@@ -73,6 +79,19 @@ export default function Header() {
             </li> */}
           </ul>
         </div>
+      </div>
+
+      <div className="header-in">
+          <div className="left">
+            <div className="desktopNavigation">
+              <UnorderedListOutlined className="hamburgerIcon" />
+            </div>
+            <img className="logo" src={logo.src} alt="logo"/>
+          </div>
+          <div className="mid">
+             <Input size="large" placeholder="搜索内容" bordered={false} prefix={<SearchOutlined />} />
+          </div>
+          <div className="right"></div>
       </div>
     </div>
   );
