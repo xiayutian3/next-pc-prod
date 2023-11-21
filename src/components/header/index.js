@@ -7,8 +7,11 @@ import {
   PlaySquareOutlined,
   CameraOutlined,
   UserOutlined,
+  StrikethroughOutlined,
+  CaretDownOutlined,
+  CaretUpOutlined,
 } from "@ant-design/icons";
-import { Input, AutoComplete } from "antd";
+import { Input, AutoComplete, Dropdown } from "antd";
 import logo from "@/assets/logo.png";
 import styles from "./index.module.scss";
 
@@ -39,11 +42,110 @@ export default function Header() {
 
   //热门推荐
   const [showHot, setShowHot] = useState(false);
-  const hotList = ["颜值", "漫展"];
+  const [hotList, setHotList] = useState(["颜值", "漫展"]);
   const handleFouce = () => {
     if (!searchText) {
       setShowHot(true);
     }
+  };
+
+  //个人中心
+  const items = [
+    {
+      label: "登录",
+      key: "0",
+    },
+    {
+      label: "注册",
+      key: "1",
+    },
+  ];
+
+  // 菜单nav
+  // <CaretDownOutlined />
+  // <CaretUpOutlined />
+  const [navItems, setNavItems] = useState([
+    {
+      label: "首页",
+      key: "0",
+      icon: <StrikethroughOutlined className="label-icon" />,
+      unfold: false,
+      children: [
+        {
+          label: "首页123",
+          key: "0-1",
+          icon: <StrikethroughOutlined className="label-icon" />,
+        },
+      ],
+    },
+    {
+      label: "分类",
+      key: "1",
+      icon: <StrikethroughOutlined className="label-icon" />,
+    },
+  ]);
+  // 控制展开收起
+  // const [unfoldFlag, setUnfoldFlag] = useState(false)
+  const handleItem = () => {};
+  const handleChildItem = () => {};
+  const handleIcon = (item, e) => {
+    // 阻止合成事件间的冒泡
+    e.stopPropagation();
+    const newArr = navItems.map((navItem) => {
+      if (item.key === navItem.key) {
+        navItem.unfold = !navItem.unfold;
+      }
+      return navItem;
+    });
+    setNavItems(newArr);
+  };
+
+  const handleUnfoldIcons = (item) => {
+    if (item.children) {
+      if (item.unfold) {
+        return <CaretUpOutlined />;
+      } else {
+        return <CaretDownOutlined />;
+      }
+    }
+  };
+
+  const dropdownRender = () => {
+    return (
+      <div className="dyrender-wrap">
+        {navItems.map((item) => {
+          return (
+            <div className="item-wrap" key={item.key}>
+              <div className="item" onClick={handleItem}>
+                <div className="label">
+                  {item.icon}
+                  <div className="name">{item.label}</div>
+                </div>
+                <div className="icon" onClick={(e) => handleIcon(item, e)}>
+                  {handleUnfoldIcons(item)}
+                </div>
+              </div>
+              {item.children &&
+                item.children.map((childItem) => {
+                  return (
+                    <div
+                      className={item.unfold ? "child showlist" : "child"}
+                      key={childItem.key}
+                    >
+                      <div className="item" onClick={handleChildItem}>
+                        <div className="label">
+                          {childItem.icon}
+                          <div className="name">{childItem.label}</div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          );
+        })}
+      </div>
+    );
   };
 
   return (
@@ -120,7 +222,13 @@ export default function Header() {
         <div className="header-in">
           <div className="left">
             <div className="desktopNavigation">
-              <UnorderedListOutlined className="hamburgerIcon" />
+              <Dropdown
+                overlayClassName="nav-dropdown"
+                trigger={["click"]}
+                dropdownRender={dropdownRender}
+              >
+                <UnorderedListOutlined className="hamburgerIcon" />
+              </Dropdown>
             </div>
             <img className="logo" src={logo.src} alt="logo" />
           </div>
@@ -142,7 +250,11 @@ export default function Header() {
                 />
                 <div className={showHot ? "hot show" : "hot"}>
                   <div className="title">热门搜索</div>
-                  <div className="item">漫展</div>
+                  {hotList.map((item, index) => (
+                    <div key={index} className="item">
+                      {item}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -151,7 +263,14 @@ export default function Header() {
           </div>
 
           <div className="right">
-            <UserOutlined className="user" />
+            <Dropdown
+              overlayClassName="user-dropdown"
+              menu={{ items }}
+              trigger={["click"]}
+              placement="bottomRight"
+            >
+              <UserOutlined className="user" />
+            </Dropdown>
           </div>
         </div>
       </div>
