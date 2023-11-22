@@ -12,6 +12,7 @@ import {
   CaretUpOutlined,
 } from "@ant-design/icons";
 import { Input, AutoComplete, Dropdown } from "antd";
+import Link from "next/link";
 import logo from "@/assets/logo.png";
 import styles from "./index.module.scss";
 
@@ -148,6 +149,8 @@ export default function Header() {
     );
   };
 
+  //菜单下边按钮
+
   return (
     <div className={styles.headerwrap}>
       <div className="networkBarWrapper">
@@ -271,6 +274,54 @@ export default function Header() {
             >
               <UserOutlined className="user" />
             </Dropdown>
+          </div>
+        </div>
+      </div>
+      <div className="headerMenuContainer">
+        <div className="headerMainMenuInner">
+          <div className="headerCampaignDiv">
+            <ul className="headerMainMenu">
+              <li className="menuItem">
+                <Link className="link" href="/">
+                  首页
+                </Link>
+              </li>
+              <li className="menuItem">
+                <Link className="link" href="/">
+                  视频
+                </Link>
+              </li>
+              <li className="menuItem">
+                <Link className="link" href="/">
+                  分类
+                </Link>
+              </li>
+              <li className="menuItem">
+                <Link className="link" href="/">
+                  明星
+                </Link>
+              </li>
+              <li className="menuItem">
+                <Link className="link" href="/">
+                  社区
+                </Link>
+              </li>
+              <li className="menuItem">
+                <Link className="link" href="/">
+                  照片及动图
+                </Link>
+              </li>
+              <li className="menuItem">
+                <Link className="link" href="/">
+                  {/* 照片及动图 */}
+                </Link>
+              </li>
+              <li className="menuItem">
+                <Link className="link" href="/">
+                  {/* 照片及动图 */}
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
