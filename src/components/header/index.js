@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   UnorderedListOutlined,
   SearchOutlined,
@@ -13,10 +13,23 @@ import {
 } from "@ant-design/icons";
 import { Input, AutoComplete, Dropdown } from "antd";
 import Link from "next/link";
+import { usePathname } from 'next/navigation'
 import logo from "@/assets/logo.png";
 import styles from "./index.module.scss";
 
 export default function Header() {
+  // 获取当前路径名
+  const pathname = usePathname()
+  const [localPath, setLocalPath] = useState(('/'))
+  const getPathname = () =>{
+    setLocalPath(pathname)
+  }
+  useEffect(()=>{
+    getPathname()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
+
   // AutoComplete相关
   const mockVal = (str, repeat = 1) => ({
     value: str.repeat(repeat),
@@ -284,42 +297,48 @@ export default function Header() {
               <li className="menuItem">
                 <Link className="link" href="/">
                   首页
+                <span className={localPath=="/"?"activeLine":"activeLine disShow"} ></span>
                 </Link>
               </li>
               <li className="menuItem">
                 <Link className="link" href="/">
                   视频
+                  <CaretDownOutlined className="icon"/>
                 </Link>
               </li>
               <li className="menuItem">
                 <Link className="link" href="/">
                   分类
+                  <CaretDownOutlined className="icon"/>
                 </Link>
               </li>
               <li className="menuItem">
                 <Link className="link" href="/">
                   明星
+                  <CaretDownOutlined className="icon"/>
                 </Link>
               </li>
               <li className="menuItem">
                 <Link className="link" href="/">
                   社区
+                  <CaretDownOutlined className="icon"/>
                 </Link>
               </li>
               <li className="menuItem">
                 <Link className="link" href="/">
                   照片及动图
+                  <CaretDownOutlined className="icon"/>
                 </Link>
               </li>
               <li className="menuItem">
-                <Link className="link" href="/">
-                  {/* 照片及动图 */}
-                </Link>
+                {/* <Link className="link" href="/">
+                  照片及动图
+                </Link> */}
               </li>
               <li className="menuItem">
-                <Link className="link" href="/">
-                  {/* 照片及动图 */}
-                </Link>
+                {/* <Link className="link" href="/">
+                  照片及动图
+                </Link> */}
               </li>
             </ul>
           </div>
