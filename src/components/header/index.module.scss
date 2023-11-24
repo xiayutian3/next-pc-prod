@@ -192,6 +192,7 @@
     }
   }
   :global .headerMenuContainer {
+    position: relative;
     border-top: 1px solid #0e0e0e;
     :global .headerMainMenuInner {
       background: #0e0e0e;
