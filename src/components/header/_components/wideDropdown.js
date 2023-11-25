@@ -2,9 +2,11 @@ import React from "react";
 import Link from "next/link";
 import {
   AndroidOutlined,
-  RightOutlined
+  RightOutlined,
+  RocketOutlined
 } from "@ant-design/icons";
 import "./wideDropdown.scss";
+import logo from "@/assets/logo.png";
 
 function WideDropdown() {
   return (
@@ -108,7 +110,25 @@ function WideDropdown() {
           <div className="headerSubMenu">
             <div className="innerHeaderSubMenu ">
               <Link className="link" href={"/hot"}>最热门 <RightOutlined /></Link>
-              
+              <div className="head-view">
+                <Link className="view-link" href={"/"}>
+                  <img className="poster" src={logo.src} alt="logo" />
+                  <div className="time">15:00</div>
+                  <video autoPlay className="video-preview" loop src="https://" poster=""></video>
+                </Link>
+                <div className="info-wrap">
+                  <span className="title">
+                    <Link href={"/"}>titletitletitletitle</Link>
+                  </span>
+                  <div class="username">
+                  <RocketOutlined /><Link href="/" title="username">username</Link>
+                  </div>
+                  <div className="views">
+                    2m次观看
+                  </div>
+                </div>
+               
+              </div>
             </div>
           </div>
         </div>
