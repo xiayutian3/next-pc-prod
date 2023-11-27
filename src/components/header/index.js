@@ -15,6 +15,7 @@ import { Input, AutoComplete, Dropdown } from "antd";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import WideDropdown from "./_components/wideDropdown";
+import TypeWIdeDropdown from "./_components/typeWIdeDropdown";
 import logo from "@/assets/logo.png";
 import styles from "./index.module.scss";
 
@@ -301,18 +302,19 @@ export default function Header() {
                 <span className={localPath=="/"?"activeLine":"activeLine disShow"} ></span>
                 </Link>
               </li>
-              <li className="menuItem">
+              <li className="menuItem menuItem1">
                 <Link className="link" href="/">
                   视频
                   <CaretDownOutlined className="icon"/>
                 </Link>
-                <WideDropdown/>
+                <WideDropdown className="menuItemInner" />
               </li>
-              <li className="menuItem">
+              <li className="menuItem menuItem1">
                 <Link className="link" href="/">
                   分类
                   <CaretDownOutlined className="icon"/>
                 </Link>
+                <TypeWIdeDropdown className="menuItemInner"></TypeWIdeDropdown>
               </li>
               <li className="menuItem">
                 <Link className="link" href="/">
@@ -332,12 +334,12 @@ export default function Header() {
                   <CaretDownOutlined className="icon"/>
                 </Link>
               </li>
-              <li className="menuItem">
+              <li className="menuItem nohover">
                 {/* <Link className="link" href="/">
                   照片及动图
                 </Link> */}
               </li>
-              <li className="menuItem">
+              <li className="menuItem nohover">
                 {/* <Link className="link" href="/">
                   照片及动图
                 </Link> */}

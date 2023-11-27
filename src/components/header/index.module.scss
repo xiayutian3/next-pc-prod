@@ -225,6 +225,19 @@
       border-left: 1px solid #0e0e0e;
       border-right: 1px solid #0e0e0e;
     }
+    :global .menuItem.nohover {
+      &:hover{
+        background: #0e0e0e;
+        border-top: 1px solid #0e0e0e;
+        border-left: 1px solid #0e0e0e;
+        border-right: 1px solid #0e0e0e;
+      }
+    }
+    :global .menuItem1:hover{
+      .menuItemInner{
+        display: block !important;
+      }
+    } 
     :global .link {
       position: relative;
       display: flex;
