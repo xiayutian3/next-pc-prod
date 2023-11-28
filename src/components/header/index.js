@@ -16,6 +16,7 @@ import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import WideDropdown from "./_components/wideDropdown";
 import TypeWIdeDropdown from "./_components/typeWIdeDropdown";
+import StarWideDropdown from "./_components/starWideDropdown";
 import logo from "@/assets/logo.png";
 import styles from "./index.module.scss";
 
@@ -316,11 +317,12 @@ export default function Header() {
                 </Link>
                 <TypeWIdeDropdown className="menuItemInner"></TypeWIdeDropdown>
               </li>
-              <li className="menuItem">
+              <li className="menuItem menuItem1">
                 <Link className="link" href="/">
                   明星
                   <CaretDownOutlined className="icon"/>
                 </Link>
+                <StarWideDropdown className="menuItemInner"></StarWideDropdown>
               </li>
               <li className="menuItem">
                 <Link className="link" href="/">
