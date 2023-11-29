@@ -17,6 +17,7 @@ import { usePathname } from 'next/navigation'
 import WideDropdown from "./_components/wideDropdown";
 import TypeWIdeDropdown from "./_components/typeWIdeDropdown";
 import StarWideDropdown from "./_components/starWideDropdown";
+import CommunityWideDropdown from "./_components/communityWideDropdown";
 import logo from "@/assets/logo.png";
 import styles from "./index.module.scss";
 
@@ -324,11 +325,12 @@ export default function Header() {
                 </Link>
                 <StarWideDropdown className="menuItemInner"></StarWideDropdown>
               </li>
-              <li className="menuItem">
+              <li className="menuItem menuItem1">
                 <Link className="link" href="/">
                   社区
                   <CaretDownOutlined className="icon"/>
                 </Link>
+                <CommunityWideDropdown className="menuItemInner"/>
               </li>
               <li className="menuItem">
                 <Link className="link" href="/">
