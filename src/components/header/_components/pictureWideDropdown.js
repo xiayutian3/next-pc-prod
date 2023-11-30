@@ -28,6 +28,7 @@ function PictureWideDropdown(props) {
   };
   const handleMouseOut = () => {
     ref[0].pause();
+    ref[0].load();
   };
 
   return (
@@ -134,6 +135,25 @@ function PictureWideDropdown(props) {
                     <div className="name">huli oj</div>
                   </Link>
                 </div>
+                <div className="item">
+                  <Link href={"/"}>
+                    <video
+                      muted={true}
+                      // autoPlay
+                      onMouseOver={handleMouseOver}
+                      onMouseOut={handleMouseOut}
+                      className="video_class"
+                      poster={logo.src}
+                      ref={(el) => {
+                        ref[0] = el;
+                      }}
+                    >
+                      <source src="/1.mp4" type="video/mp4"></source>
+                      您的浏览器暂不支持播放该视频，请升级至最新版浏览器。
+                    </video>
+                    <div className="name">huli oj</div>
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="innerHeaderSubMenu ">
@@ -141,21 +161,83 @@ function PictureWideDropdown(props) {
                 <span className="type">浏览最多</span>
                 <RightOutlined className="allow" />
               </Link>
-              {/* <HeadView videoItem={videoItem}></HeadView> */}
+              <div className="pic-list">
+                <div className="item">
+                  <Link href={"/"}>
+                    <video
+                      muted={true}
+                      // autoPlay
+                      onMouseOver={handleMouseOver}
+                      onMouseOut={handleMouseOut}
+                      className="video_class"
+                      poster={logo.src}
+                      ref={(el) => {
+                        ref[0] = el;
+                      }}
+                    >
+                      <source src="/1.mp4" type="video/mp4"></source>
+                      您的浏览器暂不支持播放该视频，请升级至最新版浏览器。
+                    </video>
+                    <div className="name">huli oj</div>
+                  </Link>
+                </div>
+              </div>
             </div>
             <div className="innerHeaderSubMenu ">
               <Link className="sub-link" href={"/hot"}>
                 <span className="type">最热门</span>
                 <RightOutlined className="allow" />
               </Link>
-              {/* <HeadView videoItem={videoItem}></HeadView> */}
+              <div className="pic-list">
+                <div className="item">
+                  <Link href={"/"}>
+                    <img className="img" src={logo.src} alt=""/>
+                    <span className="albumCover">
+                        <div className="title-album">My ti  </div>
+                        <p>30 照片</p>
+                        <p className="album-photo-percentage">100%</p>
+                    </span>
+                  </Link>
+                </div>
+                <div className="item">
+                  <Link href={"/"}>
+                    <img className="img" src={logo.src} alt=""/>
+                    <span className="albumCover">
+                        <div className="title-album">My ti  </div>
+                        <p>30 照片</p>
+                        <p className="album-photo-percentage">100%</p>
+                    </span>
+                  </Link>
+                </div>
+              </div>
             </div>
             <div className="innerHeaderSubMenu ">
               <Link className="sub-link" href={"/hot"}>
                 <span className="type">最热门</span>
                 <RightOutlined className="allow" />
               </Link>
-              {/* <HeadView videoItem={videoItem}></HeadView> */}
+              <div className="pic-list">
+                <div className="item">
+                  <Link href={"/"}>
+                    <img className="img" src={logo.src} alt=""/>
+                    <span className="albumCover">
+                        <div className="title-album">My ti  </div>
+                        <p>30 照片</p>
+                        <p className="album-photo-percentage">100%</p>
+                    </span>
+                  </Link>
+                </div>
+                <div className="item">
+                  <Link href={"/"}>
+                    <img className="img" src={logo.src} alt=""/>
+                    <span className="albumCover">
+                        <div className="title-album">My ti  </div>
+                        <p>30 照片</p>
+                        <p className="album-photo-percentage">100%</p>
+                    </span>
+                  </Link>
+                </div>
+              </div>
             </div>
             <div className="innerHeaderSubMenu ">
               <span className="tag-title">热门搜索</span>
