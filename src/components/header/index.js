@@ -18,6 +18,7 @@ import WideDropdown from "./_components/wideDropdown";
 import TypeWIdeDropdown from "./_components/typeWIdeDropdown";
 import StarWideDropdown from "./_components/starWideDropdown";
 import CommunityWideDropdown from "./_components/communityWideDropdown";
+import PictureWideDropdown from "./_components/pictureWideDropdown";
 import logo from "@/assets/logo.png";
 import styles from "./index.module.scss";
 
@@ -332,11 +333,12 @@ export default function Header() {
                 </Link>
                 <CommunityWideDropdown className="menuItemInner"/>
               </li>
-              <li className="menuItem">
+              <li className="menuItem menuItem1">
                 <Link className="link" href="/">
                   照片及动图
                   <CaretDownOutlined className="icon"/>
                 </Link>
+                <PictureWideDropdown className="menuItemInner"/>
               </li>
               <li className="menuItem nohover">
                 {/* <Link className="link" href="/">
