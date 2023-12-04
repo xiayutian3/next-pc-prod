@@ -10,6 +10,7 @@ import {
   StrikethroughOutlined,
   CaretDownOutlined,
   CaretUpOutlined,
+  GlobalOutlined
 } from "@ant-design/icons";
 import { Input, AutoComplete, Dropdown } from "antd";
 import Link from "next/link";
@@ -19,6 +20,7 @@ import TypeWIdeDropdown from "./_components/typeWIdeDropdown";
 import StarWideDropdown from "./_components/starWideDropdown";
 import CommunityWideDropdown from "./_components/communityWideDropdown";
 import PictureWideDropdown from "./_components/pictureWideDropdown";
+import {useGetLangHook} from "@/hook/langHook"
 import logo from "@/assets/logo.png";
 import styles from "./index.module.scss";
 
@@ -67,8 +69,28 @@ export default function Header() {
       setShowHot(true);
     }
   };
+  //语言切换
+  const  [localLang,setlangFn] = useGetLangHook()
 
   //个人中心
+  const langItems = [
+    {
+      label: "中文",
+      key: "zh-CN",
+    },
+    {
+      label: "英文",
+      key: "en",
+    },
+  ]
+  const onClickLang = ({ key }) => {
+    // console.log('key: ', key);
+    if(key === "zh-CN") {
+      setlangFn("zh-CN")
+    }else if(key === "en") {
+      setlangFn("en")
+    }
+  };
   const items = [
     {
       label: "登录",
@@ -79,6 +101,9 @@ export default function Header() {
       key: "1",
     },
   ];
+  const onClickItem = ({ key }) => {
+    console.log('key: ', key);
+  };
 
   // 菜单nav
   // <CaretDownOutlined />
@@ -181,7 +206,7 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
               >
-                Spicevids
+                {localLang.head?.title}
               </a>
             </li>
             <li>
@@ -286,7 +311,16 @@ export default function Header() {
           <div className="right">
             <Dropdown
               overlayClassName="user-dropdown"
-              menu={{ items }}
+              menu={{ items:langItems ,onClick:onClickLang}}
+              trigger={["click"]}
+              placement="bottomRight"
+            >
+              <GlobalOutlined className="user global" />
+            </Dropdown>
+        
+            <Dropdown
+              overlayClassName="user-dropdown"
+              menu={{ items ,onClick:onClickItem}}
               trigger={["click"]}
               placement="bottomRight"
             >

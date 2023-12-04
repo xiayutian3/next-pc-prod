@@ -1,5 +1,5 @@
 {
-  "products": {
-    "cart": "车车"
+  "head": {
+    "title": "标题"
   }
 }

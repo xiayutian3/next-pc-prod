@@ -189,6 +189,9 @@
         font-size: 28px;
         cursor: pointer;
       }
+      :global .global {
+        margin-right: 10px;
+      }
     }
   }
   :global .headerMenuContainer {
