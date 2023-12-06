@@ -272,4 +272,17 @@
       display: none;
     }
   }
+  :global .sectionWrapper{
+    min-width: 991px;
+    max-width: 1323px;
+    width: 96%;
+    margin: 0 auto;
+    background: #000000;
+    margin-bottom: 20px;
+  }
+  :global .headertitle {
+    padding: 15px 11px 15px 0px;
+    color: #fff;
+    font-size: 12pt;
+  }
 }

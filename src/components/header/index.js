@@ -20,6 +20,7 @@ import TypeWIdeDropdown from "./_components/typeWIdeDropdown";
 import StarWideDropdown from "./_components/starWideDropdown";
 import CommunityWideDropdown from "./_components/communityWideDropdown";
 import PictureWideDropdown from "./_components/pictureWideDropdown";
+import MenuSlider from "../menuSlider";
 import {useGetLangHook} from "@/hook/langHook"
 import logo from "@/assets/logo.png";
 import styles from "./index.module.scss";
@@ -192,7 +193,106 @@ export default function Header() {
     );
   };
 
-  //菜单下边按钮
+  //滑动菜单
+  const navList = [
+    {
+      name: "推荐",
+      search: "1",
+    },
+    {
+      name: "穿搭",
+      search: "2",
+    },
+    {
+      name: "美食",
+      search: "3",
+    },
+    {
+      name: "推荐2",
+      search: "4",
+    },
+    {
+      name: "穿搭2",
+      search: "5",
+    },
+    {
+      name: "美食2",
+      search: "6",
+    },
+    {
+      name: "推荐",
+      search: "1",
+    },
+    {
+      name: "穿搭",
+      search: "2",
+    },
+    {
+      name: "美食",
+      search: "3",
+    },
+    {
+      name: "推荐2",
+      search: "4",
+    },
+    {
+      name: "穿搭2",
+      search: "5",
+    },
+    {
+      name: "美食2",
+      search: "6",
+    },
+    {
+      name: "推荐",
+      search: "1",
+    },
+    {
+      name: "穿搭",
+      search: "2",
+    },
+    {
+      name: "美食",
+      search: "3",
+    },
+    {
+      name: "推荐2",
+      search: "4",
+    },
+    {
+      name: "穿搭2",
+      search: "5",
+    },
+    {
+      name: "美食2",
+      search: "6",
+    },
+    {
+      name: "推荐",
+      search: "1",
+    },
+    {
+      name: "穿搭",
+      search: "2",
+    },
+    {
+      name: "美食",
+      search: "3",
+    },
+    {
+      name: "推荐2",
+      search: "4",
+    },
+    {
+      name: "穿搭2",
+      search: "5",
+    },
+    {
+      name: "美食2",
+      search: "6",
+    },
+  ];
+  
 
   return (
     <div className={styles.headerwrap}>
@@ -388,6 +488,13 @@ export default function Header() {
           </div>
         </div>
       </div>
+      <div className="sectionWrapper">
+        <div className="headertitle">
+          Hot videos Internationally
+        </div>
+        <MenuSlider navList={navList}/>
+      </div>
+
     </div>
   );
 }
