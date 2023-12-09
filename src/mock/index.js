@@ -3,6 +3,7 @@ import logo from "@/assets/logo.png";
 export const videoList = [
   {
     id:"0",
+    videoSrc:"dfsdasfdas",
     name:"ncsdjndksjsd cnjdkjd",
     free:true,
     time:"31:13",
@@ -15,6 +16,7 @@ export const videoList = [
   },
   {
     id:"1",
+    videoSrc:"dfsdasfdas",
     name:"ncsdjndksjsd cnjdkjd",
     free:false,
     time:"31:13",
