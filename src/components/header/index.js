@@ -488,13 +488,12 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <div className="sectionWrapper">
+      <div className={localPath=="/"?"sectionWrapper":"showNone "}>
         <div className="headertitle">
           Hot videos Internationally
         </div>
         <MenuSlider navList={navList}/>
       </div>
-
     </div>
   );
 }

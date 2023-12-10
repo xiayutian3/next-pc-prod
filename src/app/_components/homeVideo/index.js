@@ -37,7 +37,7 @@ const items = [
 
 function HomeVideo(props) {
   const {videoItem} = props;
-  console.log('videoItem: ', videoItem);
+  // console.log('videoItem: ', videoItem);
 
   return (
     <div className="video-wrap">
@@ -88,7 +88,7 @@ function HomeVideo(props) {
               getPopupContainer={(triggerNode) => triggerNode.parentNode || document.body}
             >
               <a onClick={(e) => e.preventDefault()}>
-                <MoreOutlined />
+                <MoreOutlined className="more-img" />
               </a>
             </Dropdown>
           </div>

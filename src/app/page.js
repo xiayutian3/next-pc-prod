@@ -4,10 +4,11 @@ import "./home.scss";
 import Header from "@/components/header";
 import HomeVideo from "./_components/homeVideo";
 import {videoList} from "@/mock/index";
+import PaginationComp from "./_components/pagination";
 
 
 export default function Home() {
-
+  
 
   return (
     <>
@@ -21,6 +22,7 @@ export default function Home() {
           })
         }
       </div>
+      <PaginationComp/>
     </>
   );
 }
