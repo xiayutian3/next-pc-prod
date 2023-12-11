@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import HomeVideo from "./_components/homeVideo";
 import {videoList} from "@/mock/index";
 import PaginationComp from "./_components/pagination";
+import FooterCopm from "@/components/footer";
 
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
         }
       </div>
       <PaginationComp/>
+      <FooterCopm/>
     </>
   );
 }
