@@ -105,9 +105,15 @@ function FooterCopm() {
       </div>
       <div className="record">
         <div className="left">
-          <CommentOutlined className="icon" />
-          <CommentOutlined className="icon" />
-          <CommentOutlined className="icon" />
+          <Link className="icon" href={"/"}>
+            <CommentOutlined/>
+          </Link>
+          <Link className="icon" href={"/"} >
+            <CommentOutlined />
+          </Link>
+          <Link className="icon" href={"/"}>
+            <CommentOutlined/>
+          </Link>
         </div>
         <div className="right">© mysite.com, 2023</div>
       </div>
