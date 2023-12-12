@@ -43,38 +43,36 @@ function HomeVideo(props) {
     <div className="video-wrap">
       <div className="phimage">
         <div className="preloadLine"></div>
-        <Link href="/" className="link">
-          <img className="img" src={logo.src} alt="/" />
-          <div className="free"><StarOutlined className="free-icon" /> 免费</div>
-          <div className="time">41:00</div>
+        <Link href={`/playpage?videoSrc=${videoItem.videoSrc}`} className="link">
+          <img className="img" src={videoItem.poster} alt={videoItem.title} />
+          <div className={videoItem.free?"free":"none"} ><StarOutlined className="free-icon" /> 免费</div>
+          <div className="time">{videoItem.time}</div>
           <video autoPlay muted loop className="video-pre" poster="">
-            <source src="/1.mp4" type="video/mp4"></source>
+            <source src={videoItem.preview} type="video/mp4"></source>
           </video>
         </Link>
       </div>
       <div className="msg">
         <div className="msg-up">
           <div className="user">
-            <Link className="user-link" href="/" >sdsd</Link>
+            <Link className="user-link" href={videoItem.authLink} >{videoItem.auth}</Link>
             <CheckCircleOutlined className="user-icon"/>
           </div>
           <div className="check">
             <div className="view">
             <EyeOutlined className="view-icon" />
-              250k
+              {videoItem.view}
               </div>
             <div className="like">
             <LikeOutlined className="like-icon" />
-              86%
+              {videoItem.like}
               </div>
           </div>
         </div>
         <div className="msg-down">
           <div className="title">
-            <Link className="title-link" href={"/"}>
-              d的发动机妇女对方的你快放手的那发到你
-              d的发动机妇女对方的你快放手的那发到你
-              d的发动机妇女对方的你快放手的那发到你
+            <Link className="title-link" href={`/playpage?videoSrc=${videoItem.videoSrc}`} >
+            {videoItem.title}
             </Link>
           </div>
           <div className="more">

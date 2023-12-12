@@ -1,0 +1,25 @@
+.play-wrap{
+  display: flex;
+  min-width: 991px;
+  max-width: 1323px;
+  width: 96%;
+  margin: 0 auto;
+  background-color: pink;
+  .part1{
+    flex: 1;
+    margin-right: 6px;
+  }
+  .part2{
+    width: 325px;
+  }
+  .guess{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4,1fr);
+    grid-row-gap: 15px;
+    grid-column-gap: 10px;
+    padding: 20px 10px;
+  }
+}
