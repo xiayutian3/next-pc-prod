@@ -1,19 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useRef,useEffect } from "react";
 import {
   PlusOutlined,
 } from '@ant-design/icons';
 import {videoList} from "@/mock/index";
 import GuessVideo from "../guessVideo";
+import Player from "@/components/player";
 
 import "./index.scss";
 
 function ContentComp() {
+
   return (
     <div className="play-wrap">
       <div className="part1">
-        <div className="play-wrap">hello</div>
+        <div className="part1-video">
+          <Player></Player>
+        </div>
         <div className="title">titletitletitle</div>
         <div className="detail">
           <div className="det-left">582K 次观看 | 78% |2年前</div>
