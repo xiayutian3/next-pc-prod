@@ -7,11 +7,14 @@ import {
   LikeOutlined,
   HeartOutlined,
   FlagOutlined,
+  FundViewOutlined,
+  WifiOutlined,
 } from "@ant-design/icons";
 import { Space, Tooltip } from "antd";
 import { videoList } from "@/mock/index";
 import GuessVideo from "../guessVideo";
 import Player from "@/components/player";
+import Link from "next/link";
 
 import "./index.scss";
 
@@ -81,11 +84,15 @@ function ContentComp() {
           <div className="auth-left">
             <img src="" className="img" alt="" />
             <div className="msg">
-              <div className="name">kusoko</div>
+              <div className="name">
+                <Link href="/"> <Space>
+                kusoko <FundViewOutlined className="icon" />
+                  </Space></Link> 
+                </div>
               <div className="play-msg">137 视频 | 25.7K 订阅者</div>
             </div>
           </div>
-          <div className="auth-right">订阅</div>
+          <div className="auth-right"><WifiOutlined className="icon" />订阅</div>
         </div>
         <div className="types">
           <div className="type">分类1</div>
