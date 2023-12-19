@@ -9,12 +9,14 @@ import {
   FlagOutlined,
   FundViewOutlined,
   WifiOutlined,
+  UserAddOutlined,
 } from "@ant-design/icons";
 import { Space, Tooltip } from "antd";
 import { videoList } from "@/mock/index";
 import GuessVideo from "../guessVideo";
 import Player from "@/components/player";
 import Link from "next/link";
+import logo from "@/assets/logo.png";
 
 import "./index.scss";
 
@@ -85,14 +87,61 @@ function ContentComp() {
             <img src="" className="img" alt="" />
             <div className="msg">
               <div className="name">
-                <Link href="/"> <Space>
-                kusoko <FundViewOutlined className="icon" />
-                  </Space></Link> 
-                </div>
+                <Link className="wrap-link" href="/">
+                  <Space>
+                    kusoko <FundViewOutlined className="icon" />
+                  </Space>
+                  <div className="info">
+                    <div className="bg">
+                      <img src={logo.src} alt="" />
+                    </div>
+                    <div className="user">
+                      <div className="avtar">
+                        <img src={logo.src} alt="" />
+                      </div>
+                      <div className="user-msg">
+                        <div className="user-name">
+                          dhdj dfd
+                          <FundViewOutlined className="user-icon" />
+                        </div>
+                        <div className="detail-wrap">
+                          <div className="detail-1">
+                            <div className="detail-num">40.2K</div>
+                            <div className="detail-msg">Subs</div>
+                          </div>
+                          <div className="detail-1">
+                            <div className="detail-num">53</div>
+                            <div className="detail-msg">视频</div>
+                          </div>
+                          <div className="detail-1">
+                            <div className="detail-num">5.4M</div>
+                            <div className="detail-msg">次观看</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="btns">
+                      <div className="btn">
+                        <Space>
+                          <UserAddOutlined className="icon" /> 添加好友
+                        </Space>
+                      </div>
+                      <div className="btn">
+                        <Space>
+                          <WifiOutlined className="icon" /> 订阅
+                        </Space>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </div>
               <div className="play-msg">137 视频 | 25.7K 订阅者</div>
             </div>
           </div>
-          <div className="auth-right"><WifiOutlined className="icon" />订阅</div>
+          <div className="auth-right">
+            <WifiOutlined className="icon" />
+            订阅
+          </div>
         </div>
         <div className="types">
           <div className="type">分类1</div>
