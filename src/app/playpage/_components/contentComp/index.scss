@@ -232,12 +232,57 @@
         }
       }
     }
-    .types{
+    .type-wrap{
+      padding: 10px 10px 15px;
+      border-bottom: 1px solid #1b1b1b;
+      .type-title{
+        margin-bottom: 5px;
+        color: #969696;
+        font-size: 15px;
+        line-height: 18px;
+      }
+      .type-list{
+      }
       .type{
-
+        &:last-child{
+          margin-right: 0;
+        }
+        &:hover{
+          background-color: #2f2f2f;
+        }
+        display: inline-block;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        border-radius: 8px;
+        padding: 8px 18px;
+        background: #1b1b1b;
+        font-weight: 400;
+        font-size: 14px;
+        color: #fff;
+        text-transform: capitalize;
+        white-space: nowrap;
       }
       .add{
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #1b1b1b;
+        cursor: pointer;
+        color: #fff;
+      }
+      .suggest{
+        display: inline-block;
+        border-radius: 18px;
+        padding: 6px 8px;
+        font-size: 14px;
+        color: #fff;
+        cursor: pointer;
+        &:hover{
+          background: #1b1b1b; 
+        }
       }
     }
     .guess{

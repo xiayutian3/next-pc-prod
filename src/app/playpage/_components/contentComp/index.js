@@ -143,11 +143,16 @@ function ContentComp() {
             订阅
           </div>
         </div>
-        <div className="types">
-          <div className="type">分类1</div>
-          <div className="type add">
-            <PlusOutlined />
-            建议
+        <div className="type-wrap">
+          <div className="type-title">分类</div>
+          <div className="type-list">
+            <Link className="type" href={"/"}>分类1</Link>
+            <div className="suggest">
+              <Space>
+                <div className="add">   <PlusOutlined /></div>
+              建议
+              </Space>
+            </div>
           </div>
         </div>
         <div className="guess">
