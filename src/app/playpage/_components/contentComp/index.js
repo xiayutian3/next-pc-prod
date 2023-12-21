@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect,useState } from "react";
 import {
   PlusOutlined,
   DislikeOutlined,
@@ -10,6 +10,10 @@ import {
   FundViewOutlined,
   WifiOutlined,
   UserAddOutlined,
+  CloseOutlined,
+  ArrowUpOutlined,
+  ArrowDownOutlined,
+
 } from "@ant-design/icons";
 import { Space, Tooltip } from "antd";
 import { videoList } from "@/mock/index";
@@ -21,6 +25,12 @@ import logo from "@/assets/logo.png";
 import "./index.scss";
 
 function ContentComp() {
+  //标签添加列表
+  const [tags, setTags] = useState(false)
+  const closeTags = ()=>{
+    setTags(!tags)
+  }
+
   return (
     <div className="play-wrap">
       <div className="part1">
@@ -146,12 +156,43 @@ function ContentComp() {
         <div className="type-wrap">
           <div className="type-title">分类</div>
           <div className="type-list">
-            <Link className="type" href={"/"}>分类1</Link>
-            <div className="suggest">
+            <Link className="type" href={"/"}>
+              分类1
+            </Link>
+            <div className="suggest" onClick={closeTags}>
               <Space>
-                <div className="add">   <PlusOutlined /></div>
-              建议
+                <div className="add">
+                  <PlusOutlined />
+                </div>
+                建议
               </Space>
+            </div>
+          </div>
+          <div className={tags?'tag-wrap':'tag-wrap hide'}>
+            <div className="tag-close" onClick={closeTags}><CloseOutlined /></div>
+            <div className="tag-title">给分类投票</div>
+            <div className="tags">
+              <div className="tag">
+                <Space>
+                <ArrowUpOutlined className="icon-g act-g" />
+                <ArrowDownOutlined className=".icon-b act-b"  />
+                素颜
+                </Space>
+                </div>
+              <div className="tag">
+              <Space>
+                <ArrowUpOutlined className="icon-g " />
+                <ArrowDownOutlined className="icon-b " />
+                素颜
+                </Space>
+              </div>
+            </div>
+            <div className="tip">You need to enter a category</div>
+            <div className="inp">
+              <input placeholder="推荐一个新分类" />
+            </div>
+            <div className="btns">
+              <div className="btn">提交</div>
             </div>
           </div>
         </div>
