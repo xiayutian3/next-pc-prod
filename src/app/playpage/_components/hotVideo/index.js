@@ -12,7 +12,7 @@ import "./index.scss";
 function GuessVideo(props) {
   const { videoItem } = props;
   return (
-    <div className="guess-video">
+    <div className="hot-video">
       <div className="phimage">
         <div className="preloadLine"></div>
         <Link

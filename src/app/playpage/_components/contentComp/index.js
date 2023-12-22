@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect,useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   PlusOutlined,
   DislikeOutlined,
@@ -13,11 +13,11 @@ import {
   CloseOutlined,
   ArrowUpOutlined,
   ArrowDownOutlined,
-
 } from "@ant-design/icons";
 import { Space, Tooltip } from "antd";
 import { videoList } from "@/mock/index";
 import GuessVideo from "../guessVideo";
+import HotVideo from "../hotVideo";
 import Player from "@/components/player";
 import Link from "next/link";
 import logo from "@/assets/logo.png";
@@ -26,10 +26,10 @@ import "./index.scss";
 
 function ContentComp() {
   //标签添加列表
-  const [tags, setTags] = useState(false)
-  const closeTags = ()=>{
-    setTags(!tags)
-  }
+  const [tags, setTags] = useState(false);
+  const closeTags = () => {
+    setTags(!tags);
+  };
 
   return (
     <div className="play-wrap">
@@ -168,22 +168,24 @@ function ContentComp() {
               </Space>
             </div>
           </div>
-          <div className={tags?'tag-wrap':'tag-wrap hide'}>
-            <div className="tag-close" onClick={closeTags}><CloseOutlined /></div>
+          <div className={tags ? "tag-wrap" : "tag-wrap hide"}>
+            <div className="tag-close" onClick={closeTags}>
+              <CloseOutlined />
+            </div>
             <div className="tag-title">给分类投票</div>
             <div className="tags">
               <div className="tag">
                 <Space>
-                <ArrowUpOutlined className="icon-g act-g" />
-                <ArrowDownOutlined className=".icon-b act-b"  />
-                素颜
+                  <ArrowUpOutlined className="icon-g act-g" />
+                  <ArrowDownOutlined className=".icon-b act-b" />
+                  素颜
                 </Space>
-                </div>
+              </div>
               <div className="tag">
-              <Space>
-                <ArrowUpOutlined className="icon-g " />
-                <ArrowDownOutlined className="icon-b " />
-                素颜
+                <Space>
+                  <ArrowUpOutlined className="icon-g " />
+                  <ArrowDownOutlined className="icon-b " />
+                  素颜
                 </Space>
               </div>
             </div>
@@ -216,7 +218,14 @@ function ContentComp() {
           </div>
         </div>
       </div>
-      <div className="part2"></div>
+      <div className="part2">
+        <div className="hot-title">热推</div>
+        {videoList.map((item, index) => {
+          return (
+            <HotVideo key={index + "hotvideo"} videoItem={item}></HotVideo>
+          );
+        })}
+      </div>
     </div>
   );
 }
