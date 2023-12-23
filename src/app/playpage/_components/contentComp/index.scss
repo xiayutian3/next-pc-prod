@@ -431,11 +431,14 @@
       line-height: 1;
     }
     .add{
-      margin: 5px;
+      &:hover{
+        background: #4f4f4f;
+      }
+      margin: 15px 5px 5px;
       padding: 13px 0;
       font-size: 16px;
       color: #ccc;
-      background: #4f4f4f;
+      background: #2f2f2f;;
       cursor: pointer;
       border-radius: 4px;
       text-align: center;
