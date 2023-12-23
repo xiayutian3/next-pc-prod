@@ -14,7 +14,7 @@ import {
   ArrowUpOutlined,
   ArrowDownOutlined,
 } from "@ant-design/icons";
-import { Space, Tooltip } from "antd";
+import { Space, Tooltip ,Divider} from "antd";
 import { videoList } from "@/mock/index";
 import GuessVideo from "../guessVideo";
 import HotVideo from "../hotVideo";
@@ -30,6 +30,28 @@ function ContentComp() {
   const closeTags = () => {
     setTags(!tags);
   };
+
+  //视频部分分割线加载更多
+  const [addMoreVideo, setAddMoreVideo] = useState(10)
+  const addMoreVideoHandle = () =>{
+    if(addMoreVideo === 10){
+      return setAddMoreVideo(20)
+    }
+    setAddMoreVideo(10)
+  }
+
+
+  //右侧加载更多按钮
+  const [addNumber, setAddNumber] = useState(5)
+  const addMore = ()=>{
+    let num
+    if(addNumber === 5){
+      num=10
+    }else{
+      num=5
+    }
+    setAddNumber(num)
+  }
 
   return (
     <div className="play-wrap">
@@ -205,6 +227,7 @@ function ContentComp() {
             );
           })}
         </div>
+        <Divider className="line" onClick={addMoreVideoHandle}>{addMoreVideo === 10?'显示更多':'查看更少'}</Divider>
         <div className="comments">
           <div className="title">所有评论 (14)</div>
           <div className="comment-wrap">
@@ -220,11 +243,12 @@ function ContentComp() {
       </div>
       <div className="part2">
         <div className="hot-title">热推</div>
-        {videoList.map((item, index) => {
+        {videoList.slice(0,addNumber).map((item, index) => {
           return (
             <HotVideo key={index + "hotvideo"} videoItem={item}></HotVideo>
           );
         })}
+        <div className="add" onClick={addMore}>{addNumber === 5?'加载更多':'显示更少'}</div>
       </div>
     </div>
   );
