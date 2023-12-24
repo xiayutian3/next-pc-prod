@@ -14,7 +14,7 @@ import {
   ArrowUpOutlined,
   ArrowDownOutlined,
 } from "@ant-design/icons";
-import { Space, Tooltip ,Divider} from "antd";
+import { Space, Tooltip, Divider, Select } from "antd";
 import { videoList } from "@/mock/index";
 import GuessVideo from "../guessVideo";
 import HotVideo from "../hotVideo";
@@ -32,26 +32,30 @@ function ContentComp() {
   };
 
   //视频部分分割线加载更多
-  const [addMoreVideo, setAddMoreVideo] = useState(10)
-  const addMoreVideoHandle = () =>{
-    if(addMoreVideo === 10){
-      return setAddMoreVideo(20)
+  const [addMoreVideo, setAddMoreVideo] = useState(10);
+  const addMoreVideoHandle = () => {
+    if (addMoreVideo === 10) {
+      return setAddMoreVideo(20);
     }
-    setAddMoreVideo(10)
-  }
-
+    setAddMoreVideo(10);
+  };
 
   //右侧加载更多按钮
-  const [addNumber, setAddNumber] = useState(5)
-  const addMore = ()=>{
-    let num
-    if(addNumber === 5){
-      num=10
-    }else{
-      num=5
+  const [addNumber, setAddNumber] = useState(5);
+  const addMore = () => {
+    let num;
+    if (addNumber === 5) {
+      num = 10;
+    } else {
+      num = 5;
     }
-    setAddNumber(num)
-  }
+    setAddNumber(num);
+  };
+
+  //评论选择切换
+  const commentHandleChange = (value) => {
+    console.log(`selected ${value}`);
+  };
 
   return (
     <div className="play-wrap">
@@ -121,7 +125,7 @@ function ContentComp() {
               <div className="name">
                 <Link className="wrap-link" href="/">
                   <Space>
-                    kusoko <FundViewOutlined className="icon" />
+                    kusoko <FundViewOutlined className="icon-l" />
                   </Space>
                   <div className="info">
                     <div className="bg">
@@ -227,28 +231,200 @@ function ContentComp() {
             );
           })}
         </div>
-        <Divider className="line" onClick={addMoreVideoHandle}>{addMoreVideo === 10?'显示更多':'查看更少'}</Divider>
+        <Divider className="line" onClick={addMoreVideoHandle}>
+          {addMoreVideo === 10 ? "显示更多" : "查看更少"}
+        </Divider>
         <div className="comments">
-          <div className="title">所有评论 (14)</div>
+          <div className="top-wrap">
+            <div className="title-wrap">
+              <div className="title">所有评论 (14)</div>
+              <div className="tip">
+                <Link className="link" href={"/login"}>
+                  登录
+                </Link>
+                或
+                <Link className="link" href={"/register"}>
+                  注册
+                </Link>
+                马上射条评论!
+              </div>
+            </div>
+            <div className="select-wrap">
+              <Select
+                defaultValue="lucy"
+                getPopupContainer={(el) => el.parentNode}
+                style={{ width: 180 }}
+                onChange={commentHandleChange}
+                options={[
+                  { value: "hot", label: "热门评论" },
+                  { value: "new", label: "最新评论" },
+                ]}
+              />
+            </div>
+          </div>
           <div className="comment-wrap">
             <div className="comment">
               <div className="top">
-                <img className="img" src="" alt="" />
+                <Space>
+                  <Link href={"/"}>
+                    <img className="img" src={logo.src} alt="" />
+                  </Link>
+                  <Link className="name" href={"/"}>
+                    Briaa42
+                  </Link>
+                  <span className="time">2年前</span>
+                </Space>
+                <div className="comment-info">
+                  <div className="bg">
+                    <img src={logo.src} alt="" />
+                  </div>
+                  <div className="user">
+                    <div className="avtar">
+                      <img src={logo.src} alt="" />
+                    </div>
+                    <div className="user-msg">
+                      <div className="user-name">
+                        dhdj dfd
+                        <FundViewOutlined className="user-icon" />
+                      </div>
+                      <div className="detail-wrap">
+                        <div className="detail-1">
+                          <div className="detail-num">40.2K</div>
+                          <div className="detail-msg">Subs</div>
+                        </div>
+                        <div className="detail-1">
+                          <div className="detail-num">53</div>
+                          <div className="detail-msg">视频</div>
+                        </div>
+                        <div className="detail-1">
+                          <div className="detail-num">5.4M</div>
+                          <div className="detail-msg">次观看</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="btns">
+                    <div className="btn">
+                      <Space>
+                        <UserAddOutlined className="icon" /> 添加好友
+                      </Space>
+                    </div>
+                    <div className="btn">
+                      <Space>
+                        <WifiOutlined className="icon" /> 订阅
+                      </Space>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="mid"></div>
-              <div className="action"> 回复</div>
+              <div className="mid">write down</div>
+              <div className="action">
+                <Space>
+                  <div>
+                    <LikeOutlined className="icon" /> 10
+                  </div>
+                  <div>
+                    <DislikeOutlined className="icon" /> 10
+                  </div>
+                  <div className="reply">· 回复</div>
+                </Space>
+              </div>
+            </div>
+            <div className="comment next-comment">
+              <div className="top">
+                <Space>
+                  <Link href={"/"}>
+                    <img className="img" src={logo.src} alt="" />
+                  </Link>
+                  <Link className="name" href={"/"}>
+                    Briaa42
+                  </Link>
+                  <span className="time">2年前</span>
+                </Space>
+                <div className="comment-info">
+                  <div className="bg">
+                    <img src={logo.src} alt="" />
+                  </div>
+                  <div className="user">
+                    <div className="avtar">
+                      <img src={logo.src} alt="" />
+                    </div>
+                    <div className="user-msg">
+                      <div className="user-name">
+                        dhdj dfd
+                        <FundViewOutlined className="user-icon" />
+                      </div>
+                      <div className="detail-wrap">
+                        <div className="detail-1">
+                          <div className="detail-num">40.2K</div>
+                          <div className="detail-msg">Subs</div>
+                        </div>
+                        <div className="detail-1">
+                          <div className="detail-num">53</div>
+                          <div className="detail-msg">视频</div>
+                        </div>
+                        <div className="detail-1">
+                          <div className="detail-num">5.4M</div>
+                          <div className="detail-msg">次观看</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="btns">
+                    <div className="btn">
+                      <Space>
+                        <UserAddOutlined className="icon" /> 添加好友
+                      </Space>
+                    </div>
+                    <div className="btn">
+                      <Space>
+                        <WifiOutlined className="icon" /> 订阅
+                      </Space>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="mid">write down</div>
+              <div className="action">
+                <Space>
+                  <div>
+                    <Tooltip
+                      getPopupContainer={(el) => el.parentNode}
+                      color="#2f2f2f"
+                      title="顶一下"
+                    >
+                      <span>
+                        <LikeOutlined className="icon" /> 10
+                      </span>
+                    </Tooltip>
+                  </div>
+                  <div>
+                    <Tooltip
+                      getPopupContainer={(el) => el.parentNode}
+                      color="#2f2f2f"
+                      title="踩一下"
+                    >
+                      <DislikeOutlined className="icon" /> 10
+                    </Tooltip>
+                    <span></span>
+                  </div>
+                  <div className="reply">· 回复</div>
+                </Space>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div className="part2">
         <div className="hot-title">热推</div>
-        {videoList.slice(0,addNumber).map((item, index) => {
+        {videoList.slice(0, addNumber).map((item, index) => {
           return (
             <HotVideo key={index + "hotvideo"} videoItem={item}></HotVideo>
           );
         })}
-        <div className="add" onClick={addMore}>{addNumber === 5?'加载更多':'显示更少'}</div>
+        <div className="add" onClick={addMore}>
+          {addNumber === 5 ? "加载更多" : "显示更少"}
+        </div>
       </div>
     </div>
   );
