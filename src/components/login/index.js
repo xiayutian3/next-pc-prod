@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Input, Modal, Checkbox } from "antd";
+import { Input, Modal, Checkbox,Divider } from "antd";
 import logo from "@/assets/logo.png";
 
 import "./index.scss";
@@ -61,6 +61,7 @@ function LoginComp(props) {
             <Link className="link" href={"/"}>
               忘了用户名和密码？
             </Link>
+            <Divider type="vertical" />
             <Link className="link" href={"/"}>
               重新发送确认邮件
             </Link>
