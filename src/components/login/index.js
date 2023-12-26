@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { Input, Modal, Checkbox,Divider } from "antd";
 import logo from "@/assets/logo.png";
 
 import "./index.scss";
-import Link from "next/link";
+
 
 function LoginComp(props) {
   const handleOk = () => {};
